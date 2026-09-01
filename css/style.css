@@ -425,10 +425,11 @@ body {
 /* .placed setzt seinen eigenen cursor:grab (zum Verschieben) — der gewinnt
    sonst über einem Bild/Bereich, obwohl ein Ziehen dort bei scharfgestelltem
    Symbol genauso einen neuen Bereich aufzieht wie auf leerer Fläche (siehe
-   onPlacedDown() in app.js: ein noch nicht ausgewähltes Element lässt den
-   Klick durchlaufen). Nur das BEREITS ausgewählte Element wird durch Ziehen
-   tatsächlich verschoben, deshalb bleibt dessen eigener grab-Cursor stehen. */
-.canvas.is-armed .placed:not(.is-selected) { cursor: crosshair; }
+   onPlacedDown() in app.js). Gilt seit dem Griff-basierten Verschieben auch
+   für ein BEREITS ausgewähltes Element: dessen Körper zieht selbst nicht
+   mehr, nur noch der eigene Griff (.placed-grab) — der behält wegen höherer
+   Spezifität ohnehin seinen grab-Cursor. */
+.canvas.is-armed .placed { cursor: crosshair; }
 
 /* Während tatsächlich geschwenkt wird (Ziehschwelle überschritten): Faust
    statt offener Hand — dieselbe Konvention wie .placed.is-dragging. */

@@ -848,13 +848,6 @@
       window.addEventListener("pointercancel", onUp);
     });
 
-    // Auf dem höchsten Stapel-Level zeigen, solange gehovert wird: sonst
-    // läge der Greif-/Löschgriff eines dahinterliegenden Elements unter
-    // einem davorliegenden und wäre unerreichbar. Da je Zeitpunkt nur ein
-    // Element gehovert werden kann, gibt es nie zwei sichtbare Griffe, die
-    // sich gegenseitig verdecken könnten.
-    node.addEventListener("pointerenter", function () { bringToFront(inst); });
-
     if (inst.kind === "text") {
       wireBubble(inst, node);   // eigener Doppelklick: öffnet den Schreibmodus (wählt dabei auch aus, siehe startEditing())
     } else {
